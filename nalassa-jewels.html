@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#6ec3d6" />
+  <title>Handmade Seashell Jewellery – Nalassa Jewels</title>
+  <meta name="description" content="One-of-a-kind handmade seashell jewellery. Ethically hand-picked shells, custom orders, worldwide shipping. Free US shipping." />
+
+  <!-- Social preview -->
+  <meta property="og:title" content="Nalassa Jewels" />
+  <meta property="og:description" content="One-of-a-kind handmade seashell jewellery. Ethically hand-picked shells, custom orders, worldwide shipping." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/social-preview.jpg" />
+  <meta property="og:url" content="https://example.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/seashell-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/seashell-favicon-192.png">
+  <link rel="apple-touch-icon" href="images/seashell-favicon-192.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#0b1020; --bg:#f7fbfd; --mint:#dff5ef; --aqua:#6ec3d6; --muted:#c9d9df;
+      --radius:16px; --shadow:0 20px 40px rgba(10,20,40,.12); --max:1200px;
+    }
+    *{box-sizing:border-box}
+
+    /* Prevent accidental horizontal scroll, including iOS Safari */
+    html, body{ width:100%; max-width:100%; margin:0; padding:0; overflow-x:clip; }
+    @supports not (overflow-x: clip){ html, body{ overflow-x:hidden; } }
+    img, svg, video{ max-width:100%; height:auto; }
+
+    body{
+      background:var(--bg); color:var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6;
+    }
+    a{color:var(--aqua);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header */
+    .site-header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(247,251,253,.8);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid rgba(10,20,40,.06);
+    }
+    .nav{max-width:var(--max);margin:0 auto;display:flex;align-items:center;gap:18px;padding:10px 20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .brand img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+    .nav-spacer{flex:1}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;border-radius:9999px;padding:10px 16px;border:1px solid rgba(10,20,40,.1);background:#fff;box-shadow:0 4px 14px rgba(10,20,40,.06);font-weight:600}
+    .btn:hover{box-shadow:0 10px 24px rgba(10,20,40,.12)}
+
+    /* Hero */
+    .hero{position:relative;isolation:isolate; overflow:hidden;}
+    .hero .bg{
+      position:absolute;inset:0;z-index:-1;overflow:hidden;
+      background:linear-gradient(180deg, rgba(110,195,214,.25), rgba(223,245,239,.35));
+    }
+    .hero .bg::before{
+      content:"";position:absolute;inset:auto 0 0 0;height:220px;z-index:-1;
+      background:radial-gradient(70% 100% at 50% 0%, rgba(110,195,214,.35) 0%, transparent 70%),
+                 radial-gradient(80% 120% at 20% 0%, rgba(248,215,217,.35) 0%, transparent 70%),
+                 linear-gradient(#f7fbfd,#f7fbfd);
+      clip-path:polygon(0 65%, 10% 60%, 20% 68%, 30% 58%, 40% 66%, 50% 56%, 60% 66%, 70% 60%, 80% 70%, 90% 58%, 100% 66%, 100% 100%, 0 100%);
+      filter:blur(14px);
+    }
+    .hero-inner{max-width:var(--max);margin:0 auto;padding:64px 20px 32px;display:grid;grid-template-columns:1.1fr .9fr;gap:28px; overflow:hidden;}
+    @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+
+    .hero-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:32px}
+    .hero h1{font-family:'Playfair Display', serif;font-weight:700;line-height:1.2;margin:0 0 12px;font-size:clamp(28px,4.5vw,50px)}
+    .tagline{font-size:1.05rem;color:#3a5260;margin:0 0 18px}
+    .badges{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 24px}
+    .chip{background:var(--mint);border:1px solid rgba(10,20,40,.08);padding:6px 12px;border-radius:999px;font-weight:600}
+
+    .hero-media{display:grid;gap:16px}
+    .cover{aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .cover img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .cta-row{display:flex;flex-wrap:wrap;gap:10px}
+    .btn-primary{background:var(--aqua);color:#fff;border:1px solid rgba(10,20,40,.08)}
+    .btn-primary:hover{filter:saturate(120%)}
+    .btn-ghost{background:#fff}
+
+    /* Sections */
+    section{max-width:var(--max);margin:0 auto;padding:48px 20px; overflow:hidden;}
+    .section-title{font-family:'Playfair Display',serif;font-weight:700;margin:0 0 22px;font-size:clamp(22px,3vw,32px)}
+    .subtle{color:#4d6774}
+
+    /* === Gallery (responsive masonry with CSS columns) === */
+    .gallery{
+      column-width: 320px;
+      column-gap: 18px;
+      width: 100%;
+    }
+    .tile{
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 18px;
+      break-inside: avoid;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .tile a{ display:block }
+    .tile img{ width:100%; height:auto; display:block }
+    .tile .cap{
+      position:absolute; inset:auto 0 0 0;
+      background:linear-gradient(transparent, rgba(11,16,32,.65));
+      color:#fff; padding:10px 12px; font-weight:600;
+      opacity:0; transition:.25s;
+    }
+    .tile:hover .cap{ opacity:1 }
+    .tile .dots{ position:absolute; right:8px; bottom:8px; display:flex; gap:6px }
+    .tile .dot{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.7); border:1px solid rgba(0,0,0,.2) }
+    .tile .dot.on{ background:#fff }
+
+    @media (max-width: 1200px){
+      .gallery{ column-width: 300px; column-gap: 16px }
+      .tile{ margin-bottom: 16px }
+    }
+    @media (max-width: 900px){
+      .gallery{ column-width: 270px; column-gap: 16px }
+    }
+    @media (max-width: 700px){
+      .gallery{ column-count: 2; column-gap: 12px }
+      .tile{ margin-bottom: 12px }
+    }
+    @media (max-width: 420px){
+      .gallery{ column-count: 2; column-gap: 10px }
+      .tile{ margin-bottom: 10px }
+    }
+
+    /* Lightbox v2 (multi-image) */
+    .lightbox2{position:fixed;inset:0;background:rgba(6,10,24,.85);display:none;align-items:center;justify-content:center;z-index:80}
+    .lightbox2.open{display:flex}
+    .lightbox2 img{max-width:92vw;max-height:80vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+    .lightbox2 .btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:0;border-radius:999px;width:44px;height:44px;font-size:20px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.2)}
+    .lightbox2 .close{top:8%;right:5%;transform:none}
+    .lightbox2 .prev{left:3%}
+    .lightbox2 .next{right:3%}
+    .lightbox2 .thumbs{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:92vw}
+    .lightbox2 .thumbs img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:2px solid transparent;opacity:.9;cursor:pointer}
+    .lightbox2 .thumbs img.active{border-color:#fff;opacity:1}
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:900px){.cards{grid-template-columns:1fr}}
+    .card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    .card h3{margin:0 0 10px;font-family:'Playfair Display',serif}
+
+    /* Contact form */
+    .contact{max-width:860px;margin:0 auto;background:#fff;border:1px solid rgba(10,20,40,.06);box-shadow:var(--shadow);border-radius:var(--radius);padding:22px}
+    .contact .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:800px){.contact .row{grid-template-columns:1fr}}
+    .field{display:flex;flex-direction:column;gap:8px;margin:10px 0}
+    .field > span{font-weight:600}
+    .field input,.field textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(10,20,40,.12);background:#fbfeff;font:inherit;outline:none}
+    .field input:focus,.field textarea:focus{box-shadow:0 0 0 3px rgba(110,195,214,.25);border-color:var(--aqua)}
+    .check{display:flex;align-items:center;gap:10px;margin:6px 0 12px;color:#2a3f4a}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+    .hp{position:absolute !important;left:-10000px !important;opacity:0 !important}
+    .tiny{font-size:.9rem}
+    .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;background:#0b1020;color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.25);display:none;z-index:60}
+    .toast.show{display:block}
+
+    /* Pager */
+    .pager{display:flex;justify-content:center;gap:8px;margin:18px 0 0}
+    .pager .pbtn{min-width:38px;height:38px;padding:0 12px;border-radius:999px;border:1px solid rgba(10,20,40,.12);background:#fff;font-weight:600;box-shadow:0 6px 16px rgba(10,20,40,.06);cursor:pointer}
+    .pager .pbtn[aria-current="page"]{background:var(--aqua);color:#fff;border-color:transparent}
+
+    /* Floating Language FAB — always bottom-right (safe-area aware) */
+    .lang-fab{
+      position: fixed;
+      right: max(16px, env(safe-area-inset-right));
+      bottom: max(16px, env(safe-area-inset-bottom));
+      z-index: 2147483000;
+      pointer-events: none;
+      transform: translateZ(0);
+    }
+    .lang-fab *{ pointer-events: auto; }
+    .lang-fab button.main{
+      width: 56px; height: 56px;
+      border-radius: 999px; border: 0;
+      background: #6ec3d6; color: #fff; font-weight: 800;
+      box-shadow: 0 16px 36px rgba(10,20,40,.25);
+      cursor: pointer;
+      -webkit-touch-callout:none; -webkit-tap-highlight-color:transparent;
+    }
+    .lang-fab .menu{
+      position: absolute;
+      right: 0;
+      bottom: calc(56px + 12px);
+      background:#fff;
+      border:1px solid rgba(10,20,40,.1);
+      border-radius:14px;
+      box-shadow:0 20px 40px rgba(10,20,40,.12);
+      display:none; overflow:hidden; min-width:170px;
+      max-height: min(60vh, 420px); overflow-y:auto;
+    }
+    .lang-fab.open .menu{ display:block }
+    .lang-fab .menu button{
+      display:block; width:100%; padding:12px 14px; border:0;
+      background:#fff; text-align:left; cursor:pointer;
+    }
+    .lang-fab .menu button:hover{ background:#f3fafb }
+
+    @media (max-width: 480px){
+      .lang-fab button.main{ width: 58px; height: 58px }
+      .lang-fab{
+        right: max(14px, env(safe-area-inset-right));
+        bottom: max(14px, env(safe-area-inset-bottom));
+      }
+    }
+
+    /* Footer (robust) */
+    .site-footer{margin-top:28px;background:linear-gradient(180deg, #f7fbfd, #eaf6f7);border-top:1px solid rgba(10,20,40,.08)}
+    .footer-inner{
+      max-width:var(--max);margin:0 auto;padding:28px 20px;
+      display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between; overflow:hidden;
+    }
+    .footer-brand{display:flex;align-items:center;gap:12px}
+    .footer-brand img{width:32px;height:32px;border-radius:50%}
+    .social{display:flex;gap:12px;margin-left:auto}
+    .social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid rgba(10,20,40,.08);box-shadow:0 6px 18px rgba(10,20,40,.08)}
+  </style>
+</head>
+<body>
+  <!-- Header / nav -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#home">
+        <img src="images/seashell-favicon-192.png" alt="Seashell logo">
+        <span>Nalassa Jewels</span>
+      </a>
+      <div class="nav-spacer"></div>
+      <a class="btn" id="navInstagram" href="https://www.instagram.com/seaside.jewellery.by.nala/" target="_blank" rel="noopener" data-i18n="nav.instagram">Instagram</a>
+      <a class="btn" id="navEtsy" href="https://www.etsy.com/shop/seasidejewellerynala" target="_blank" rel="noopener" data-i18n="nav.etsy">Etsy Shop</a>
+      <a class="btn" id="navContact" href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-card">
+        <h1 data-i18n="hero.h1">Handmade Seashell Jewellery</h1>
+        <p class="tagline" data-i18n="hero.tagline">One-of-a-kind jewellery crafted with ethically hand-picked seashells. Custom orders • Worldwide shipping • Free US shipping.</p>
+        <div class="badges">
+          <span class="chip" data-i18n="chip.oneOfKind">🌊 One of a kind</span>
+          <span class="chip" data-i18n="chip.ethical">🐚 Ethically hand-picked</span>
+          <span class="chip" data-i18n="chip.worldwide">🌏 Worldwide shipping</span>
+          <span class="chip" data-i18n="chip.freeUS">🤍 Free US shipping</span>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.etsy.com/shop/seasidejewellerynala" target="_blank" rel="noopener" data-i18n="cta.shop">Shop on Etsy</a>
+          <a class="btn btn-ghost" href="#gallery" data-i18n="cta.gallery">View Gallery</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <figure class="cover">
+          <img src="images/hero-1.jpg" alt="Shell necklace on driftwood" loading="lazy">
+        </figure>
+        <figure class="cover">
+          <img src="images/hero-2.jpg" alt="Pearl and seashell earrings on sand" loading="lazy">
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" aria-label="Gallery">
+    <h2 class="section-title" data-i18n="gallery.title">Gallery</h2>
+    <p class="subtle" data-i18n="gallery.sub">A peek at recent creations. Click any image to view larger. Each image can link back to Instagram or Etsy.</p>
+    <div id="galleryGrid" class="gallery" aria-live="polite"></div>
+    <div id="galleryPager" class="pager" aria-label="Gallery pagination"></div>
+  </section>
+
+  <!-- Feature cards -->
+  <section aria-label="Why choose us">
+    <div class="cards">
+      <article class="card">
+        <h3 data-i18n="cards.ethical.title">Ethical & Sustainable</h3>
+        <p data-i18n="cards.ethical.body">Every shell is hand-picked with care, respecting local shorelines and ecosystems. Packaging is minimal and recyclable.</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="cards.custom.title">Custom Orders</h3>
+        <p data-i18n="cards.custom.body">Looking for a particular shell, metal, or length? We’ll collaborate to make a piece that’s uniquely yours.</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="cards.shipping.title">Worldwide Shipping</h3>
+        <p data-i18n="cards.shipping.body">We ship worldwide with careful protection. US orders ship free. Gift notes and boxes available on request.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" aria-label="Contact form">
+    <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+    <p class="subtle" data-i18n="contact.sub">Questions, custom orders, or collaborations? Send a message below and we’ll get back to you soon.</p>
+
+    <form id="contactForm" class="contact" novalidate>
+      <input type="text" name="website" autocomplete="off" tabindex="-1" class="hp" aria-hidden="true" placeholder="Do not fill" />
+      <div class="row">
+        <label class="field">
+          <span data-i18n="form.name.label">Name</span>
+          <input type="text" name="name" placeholder="Your name" data-i18n-placeholder="form.name.ph" required>
+        </label>
+        <label class="field">
+          <span data-i18n="form.email.label">Email</span>
+          <input type="email" name="email" placeholder="you@example.com" data-i18n-placeholder="form.email.ph" required>
+        </label>
+      </div>
+      <label class="field">
+        <span><span data-i18n="form.subject.label">Subject</span> <small class="muted" data-i18n="form.subject.opt">(optional)</small></span>
+        <input type="text" name="subject" placeholder="Custom order, question, collaboration…" data-i18n-placeholder="form.subject.ph">
+      </label>
+      <label class="field">
+        <span data-i18n="form.message.label">Message</span>
+        <textarea name="message" rows="6" placeholder="Tell us what you have in mind" data-i18n-placeholder="form.message.ph" required></textarea>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="consent" required>
+        <span data-i18n="form.consent">I consent to be contacted about my inquiry.</span>
+      </label>
+      <div class="actions">
+        <button class="btn btn-primary" type="submit" data-i18n="form.send">Send Message</button>
+        <a class="btn btn-ghost" id="mailtoFallback" href="#" data-i18n="form.mailto">Open email app</a>
+      </div>
+      <p class="tiny subtle" data-i18n="form.reply">We reply within 1–2 business days. For urgent requests, DM us on Instagram.</p>
+    </form>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="images/seashell-favicon-192.png" alt="Seashell logo small">
+        <strong>Nalassa Jewels</strong>
+      </div>
+      <div class="social" aria-label="Social links">
+        <a href="https://www.instagram.com/seaside.jewellery.by.nala/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 0" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.etsy.com/shop/seasidejewellerynala" target="_blank" rel="noopener" aria-label="Etsy">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 3h14v3H9.8v5.2H17V14H9.8V21H6V3z" fill="currentColor"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nalassa Jewels",
+    "url": "https://example.com/",
+    "logo": "https://example.com/images/seashell-favicon-192.png",
+    "sameAs": [
+      "https://www.instagram.com/seaside.jewellery.by.nala/",
+      "https://www.etsy.com/shop/seasidejewellerynala"
+    ]
+  }
+  </script>
+
+  <!-- Language FAB -->
+  <div class="lang-fab" id="langFab" aria-label="Language switcher">
+    <button class="main" aria-haspopup="true" aria-expanded="false" title="Change language">🌐</button>
+    <div class="menu" role="menu" aria-label="Languages"></div>
+  </div>
+
+  <!-- JS: all scripts after DOM to avoid null refs -->
+  <script>
+    /* ===================== I18N (EN + EL) ===================== */
+    const I18N = {
+      en: {
+        meta: { title: "Handmade Seashell Jewellery – Nalassa Jewels",
+                desc: "One-of-a-kind handmade seashell jewellery. Ethically hand-picked shells, custom orders, worldwide shipping. Free US shipping." },
+        nav: { instagram: "Instagram", etsy: "Etsy Shop", contact: "Contact" },
+        hero: { h1: "Handmade Seashell Jewellery",
+                tagline: "One-of-a-kind jewellery crafted with ethically hand-picked seashells. Custom orders • Worldwide shipping • Free US shipping." },
+        chip: { oneOfKind: "🌊 One of a kind", ethical: "🐚 Ethically hand-picked", worldwide: "🌏 Worldwide shipping", freeUS: "🤍 Free US shipping" },
+        cta: { shop: "Shop on Etsy", gallery: "View Gallery" },
+        gallery: { title: "Gallery", sub: "A peek at recent creations. Click any image to view larger. Each image can link back to Instagram or Etsy.", openPost: "Open post" },
+        cards: {
+          ethical: { title: "Ethical & Sustainable", body: "Every shell is hand-picked with care, respecting local shorelines and ecosystems. Packaging is minimal and recyclable." },
+          custom:  { title: "Custom Orders", body: "Looking for a particular shell, metal, or length? We’ll collaborate to make a piece that’s uniquely yours." },
+          shipping:{ title: "Worldwide Shipping", body: "We ship worldwide with careful protection. US orders ship free. Gift notes and boxes available on request." }
+        },
+        contact: { title: "Contact", sub: "Questions, custom orders, or collaborations? Send a message below and we’ll get back to you soon." },
+        form: {
+          name: { label: "Name", ph: "Your name" },
+          email: { label: "Email", ph: "you@example.com" },
+          subject: { label: "Subject", opt: "(optional)", ph: "Custom order, question, collaboration…" },
+          message: { label: "Message", ph: "Tell us what you have in mind" },
+          consent: "I consent to be contacted about my inquiry.",
+          send: "Send Message",
+          mailto: "Open email app",
+          reply: "We reply within 1–2 business days. For urgent requests, DM us on Instagram.",
+          sent: "Message sent!"
+        }
+      },
+      el: {
+        meta: { title: "Χειροποίητα κοσμήματα από κοχύλια – Nalassa Jewels",
+                desc: "Μοναδικά χειροποίητα κοσμήματα από κοχύλια. Ηθικά συλλεγμένα, ειδικές παραγγελίες, αποστολές παγκοσμίως. Δωρεάν αποστολή στις ΗΠΑ." },
+        nav: { instagram: "Instagram", etsy: "Κατάστημα Etsy", contact: "Επικοινωνία" },
+        hero: { h1: "Χειροποίητα κοσμήματα από κοχύλια",
+                tagline: "Μοναδικά κοσμήματα με ηθικά συλλεγμένα κοχύλια. Ειδικές παραγγελίες • Αποστολές παγκοσμίως • Δωρεάν αποστολή στις ΗΠΑ." },
+        chip: { oneOfKind: "🌊 Μοναδικά", ethical: "🐚 Ηθικά συλλεγμένα", worldwide: "🌏 Αποστολές παγκοσμίως", freeUS: "🤍 Δωρεάν αποστολή στις ΗΠΑ" },
+        cta: { shop: "Αγορά στο Etsy", gallery: "Δείτε τη συλλογή" },
+        gallery: { title: "Συλλογή", sub: "Μια ματιά στις πρόσφατες δημιουργίες. Κάντε κλικ για μεγαλύτερη προβολή. Κάθε εικόνα μπορεί να οδηγεί στο Instagram ή στο Etsy.", openPost: "Άνοιγμα ανάρτησης" },
+        cards: {
+          ethical: { title: "Ηθικά & Βιώσιμα", body: "Κάθε κοχύλι συλλέγεται με προσοχή, σεβόμενοι τις ακτές και τα οικοσυστήματα. Ελάχιστη, ανακυκλώσιμη συσκευασία." },
+          custom:  { title: "Ειδικές Παραγγελίες", body: "Ψάχνετε συγκεκριμένο κοχύλι, μέταλλο ή μήκος; Δημιουργούμε μαζί ένα μοναδικό κόσμημα." },
+          shipping:{ title: "Αποστολή Παγκοσμίως", body: "Στέλνουμε παντού με προσεκτική συσκευασία. Δωρεάν αποστολή στις ΗΠΑ. Κάρτες και κουτιά δώρου κατόπιν ζήτησης." }
+        },
+        contact: { title: "Επικοινωνία", sub: "Ερωτήσεις, ειδικές παραγγελίες ή συνεργασίες; Στείλτε μήνυμα και θα απαντήσουμε σύντομα." },
+        form: {
+          name: { label: "Όνομα", ph: "Το όνομά σας" },
+          email: { label: "Email", ph: "you@example.com" },
+          subject: { label: "Θέμα", opt: "(προαιρετικό)", ph: "Ειδική παραγγελία, ερώτηση, συνεργασία…" },
+          message: { label: "Μήνυμα", ph: "Πείτε μας τι έχετε στο μυαλό σας" },
+          consent: "Συμφωνώ να επικοινωνήσετε μαζί μου για το αίτημά μου.",
+          send: "Αποστολή",
+          mailto: "Άνοιγμα εφαρμογής email",
+          reply: "Απαντάμε εντός 1–2 εργάσιμων ημερών. Για επείγοντα, στείλτε DM στο Instagram.",
+          sent: "Το μήνυμα στάλθηκε!"
+        }
+      }
+    };
+
+    const RTL_LANGS = new Set([]); // EN + EL => both LTR
+
+    /* Utility selectors */
+    const $ = (s,root=document)=>root.querySelector(s);
+    const $$ = (s,root=document)=>Array.from(root.querySelectorAll(s));
+
+    /* ===== Language Switcher ===== */
+    (function bootLangSwitcher(){
+      function t(lang, path){
+        const pack = I18N[lang] || I18N.en;
+        return path.split('.').reduce((o,k)=>o && o[k], pack) ??
+               path.split('.').reduce((o,k)=>o && o[k], I18N.en) ?? path;
+      }
+
+      function applyTranslations(lang){
+        document.documentElement.lang = lang;
+        document.documentElement.dir = RTL_LANGS.has(lang) ? 'rtl' : 'ltr';
+
+        // meta
+        const meta = I18N[lang].meta || I18N.en.meta;
+        document.title = meta.title;
+        const desc = $('meta[name="description"]');
+        if (desc) desc.setAttribute('content', meta.desc);
+        const ogd = $('meta[property="og:description"]');
+        if (ogd) ogd.setAttribute('content', meta.desc);
+
+        // content
+        $$('[data-i18n]').forEach(el => el.textContent = t(lang, el.getAttribute('data-i18n')));
+        $$('[data-i18n-placeholder]').forEach(el => el.setAttribute('placeholder', t(lang, el.getAttribute('data-i18n-placeholder'))));
+
+        // gallery captions (if already rendered)
+        $$('.tile .cap').forEach(el => el.textContent = t(lang,'gallery.openPost'));
+      }
+
+      function buildFab(){
+        const fab = $('#langFab');
+        if(!fab) return;
+        const main = fab.querySelector('.main');
+        const menu = fab.querySelector('.menu');
+
+        const saved = localStorage.getItem('lang');
+        let current = (saved && I18N[saved]) ? saved :
+                      ((navigator.language||'en').split('-')[0] in I18N ? (navigator.language||'en').split('-')[0] : 'en');
+
+        applyTranslations(current);
+
+        // build menu (EN + EL)
+        const LANGS = [['en','English'], ['el','Ελληνικά']];
+        menu.innerHTML = '';
+        LANGS.forEach(([code,label])=>{
+          const b = document.createElement('button');
+          b.type='button'; b.dataset.lang=code; b.textContent = label + (code===current?' ✓':'');
+          b.addEventListener('click', ()=>{
+            current = code;
+            localStorage.setItem('lang', code);
+            applyTranslations(code);
+            // update checks
+            Array.from(menu.children).forEach(btn=>{
+              const lbl = LANGS.find(([c])=>c===btn.dataset.lang)[1];
+              btn.textContent = lbl + (btn.dataset.lang===code?' ✓':'');
+            });
+            fab.classList.remove('open');
+            main.setAttribute('aria-expanded','false');
+          });
+          menu.appendChild(b);
+        });
+
+        // toggle menu
+        main.addEventListener('click', ()=>{
+          const open = fab.classList.toggle('open');
+          main.setAttribute('aria-expanded', String(open));
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', buildFab, {once:true});
+      } else {
+        buildFab();
+      }
+    })();
+
+    /* ===== Gallery + Lightbox (pagination + per-item carousel) ===== */
+    (function galleryAndLightbox(){
+      const ITEMS = [
+        { images:['images/gallery/01-a.jpg','images/gallery/01-b.jpg','images/gallery/01-c.jpg'], href:'https://www.instagram.com/seaside.jewellery.by.nala/', alt:'Blue shell bracelet, three angles' },
+        { images:['images/gallery/02-a.jpg','images/gallery/02-b.jpg'], href:'https://www.etsy.com/shop/seasidejewellerynala', alt:'Seashell earrings with pearls' },
+        { images:['images/gallery/03-a.jpg'], href:'https://www.instagram.com/seaside.jewellery.by.nala/', alt:'Statement shell pendant on rope chain' },
+        { images:['images/gallery/04-a.jpg','images/gallery/04-b.jpg','images/gallery/04-c.jpg'], href:'https://www.etsy.com/shop/seasidejewellerynala', alt:'Delicate shell ring on sand' },
+        { images:['images/gallery/05-a.jpg'], href:'https://www.instagram.com/seaside.jewellery.by.nala/', alt:'Layered necklaces styled on linen' },
+        { images:['images/gallery/06-a.jpg','images/gallery/06-b.jpg'], href:'https://www.etsy.com/shop/seasidejewellerynala', alt:'Shell and pearl bracelet close-up' },
+        { images:['images/gallery/07-a.jpg'], href:'https://www.instagram.com/seaside.jewellery.by.nala/', alt:'Minimal earrings on driftwood' },
+        { images:['images/gallery/08-a.jpg','images/gallery/08-b.jpg','images/gallery/08-c.jpg'], href:'https://www.etsy.com/shop/seasidejewellerynala', alt:'Sunlit seashell charm necklace' },
+        { images:['images/gallery/09-a.jpg'], href:'https://www.instagram.com/seaside.jewellery.by.nala/', alt:'Dainty shell studs on shell dish' },
+        { images:['images/gallery/10-a.jpg'], href:'https://www.etsy.com/shop/seasidejewellerynala', alt:'Curated set: necklace + earrings' },
+        { images:['images/gallery/11-a.jpg','images/gallery/11-b.jpg'], href:'https://www.instagram.com/seaside.jewellery.by.nala/', alt:'Hand holding shell pendant at beach' },
+        { images:['images/gallery/12-a.jpg'], href:'https://www.etsy.com/shop/seasidejewellerynala', alt:'Gift-ready jewellery box with logo' }
+      ];
+
+      const ITEMS_PER_PAGE = 12;
+      let currentPage = 1;
+      const grid = document.getElementById('galleryGrid');
+      const pager = document.getElementById('galleryPager');
+
+      function pageCount(){ return Math.max(1, Math.ceil(ITEMS.length / ITEMS_PER_PAGE)); }
+      function pageSlice(p){ const s=(p-1)*ITEMS_PER_PAGE; return ITEMS.slice(s, s+ITEMS_PER_PAGE); }
+
+      function renderPager(){
+        if(!pager) return; pager.innerHTML='';
+        const total = pageCount();
+        if(total<=1) return;
+        const mk = (label, p, cur=false)=>{
+          const b=document.createElement('button'); b.className='pbtn'; b.textContent=label; if(cur) b.setAttribute('aria-current','page');
+          b.addEventListener('click', ()=>{ currentPage=p; renderPage(); window.scrollTo({top: pager.parentElement.offsetTop-80, behavior:'smooth'}); });
+          return b;
+        };
+        pager.appendChild(mk('«', Math.max(1,currentPage-1)));
+        for(let i=1;i<=total;i++) pager.appendChild(mk(String(i), i, i===currentPage));
+        pager.appendChild(mk('»', Math.min(total,currentPage+1)));
+      }
+
+      function capText(){
+        return (document.documentElement.lang==='el' ? I18N.el.gallery.openPost : I18N.en.gallery.openPost);
+      }
+
+      function renderPage(){
+        if(!grid) return; grid.innerHTML='';
+        const frag=document.createDocumentFragment();
+        pageSlice(currentPage).forEach((item, idx)=>{
+          const fig=document.createElement('figure'); fig.className='tile';
+          const a=document.createElement('a'); a.href=item.href||'#'; a.target='_blank'; a.rel='noopener';
+          const img=document.createElement('img'); img.loading='lazy'; img.alt=item.alt||'Nalassa Jewels'; img.src=item.images[0];
+          a.appendChild(img); fig.appendChild(a);
+          const cap=document.createElement('figcaption'); cap.className='cap'; cap.textContent=capText(); fig.appendChild(cap);
+          if(item.images.length>1){
+            const dots=document.createElement('div'); dots.className='dots';
+            item.images.forEach((_,i)=>{ const d=document.createElement('span'); d.className='dot'+(i===0?' on':''); dots.appendChild(d); });
+            fig.appendChild(dots);
+          }
+          fig.addEventListener('click', (e)=>{ e.preventDefault(); openLightbox2((currentPage-1)*ITEMS_PER_PAGE + idx, 0); });
+          frag.appendChild(fig);
+        });
+        grid.appendChild(frag);
+        renderPager();
+      }
+
+      // Lightbox
+      const lb2=document.createElement('div'); lb2.className='lightbox2';
+      lb2.innerHTML=`
+        <button class="btn close" aria-label="Close">×</button>
+        <button class="btn prev" aria-label="Previous image">‹</button>
+        <img alt="Expanded jewellery image" />
+        <button class="btn next" aria-label="Next image">›</button>
+        <div class="thumbs" aria-label="Thumbnails"></div>`;
+      document.body.appendChild(lb2);
+      const lb2Img=lb2.querySelector('img'); const thumbs=lb2.querySelector('.thumbs');
+      let activeItem=0, activeImage=0;
+
+      function showSlide(){
+        const imgs = ITEMS[activeItem].images; lb2Img.src = imgs[activeImage];
+        thumbs.innerHTML='';
+        imgs.forEach((src,i)=>{ const timg=document.createElement('img'); timg.src=src; timg.alt=''; if(i===activeImage) timg.classList.add('active'); timg.addEventListener('click',()=>{activeImage=i; showSlide();}); thumbs.appendChild(timg); });
+      }
+      function openLightbox2(itemIndex, imageIndex){ activeItem=itemIndex; activeImage=imageIndex||0; lb2.classList.add('open'); showSlide(); }
+
+      lb2.querySelector('.close').addEventListener('click', ()=> lb2.classList.remove('open'));
+      lb2.querySelector('.prev').addEventListener('click', ()=>{ activeImage=(activeImage-1+ITEMS[activeItem].images.length)%ITEMS[activeItem].images.length; showSlide(); });
+      lb2.querySelector('.next').addEventListener('click', ()=>{ activeImage=(activeImage+1)%ITEMS[activeItem].images.length; showSlide(); });
+      window.addEventListener('keydown', (e)=>{ if(!lb2.classList.contains('open')) return; if(e.key==='Escape') lb2.classList.remove('open'); if(e.key==='ArrowLeft') lb2.querySelector('.prev').click(); if(e.key==='ArrowRight') lb2.querySelector('.next').click(); });
+
+      // Initial render
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderPage, {once:true});
+      } else {
+        renderPage();
+      }
+    })();
+
+    /* ===== Contact form demo ===== */
+    (function contactForm(){
+      const form = document.getElementById('contactForm');
+      const toast = document.getElementById('toast');
+      const mailto = document.getElementById('mailtoFallback');
+
+      mailto?.addEventListener('click', (e)=>{
+        e.preventDefault();
+        const name = form?.elements['name']?.value || '';
+        const subject = form?.elements['subject']?.value || '';
+        const body = (form?.elements['message']?.value || '');
+        const mail = `mailto:hello@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent((name?name+"\n\n":"")+body)}`;
+        window.location.href = mail;
+      });
+
+      form?.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const lang = document.documentElement.lang || 'en';
+        const msg = (lang==='el' ? I18N.el.form.sent : I18N.en.form.sent);
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'), 2500);
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>
